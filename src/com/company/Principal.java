@@ -27,7 +27,7 @@ public class Principal {
             System.out.println("7. Buscar un elemento por valor");
             System.out.println("8. Buscar un elemento por indice");
             System.out.println("9. Borrar un elemento");
-            System.out.println("0. Salir");
+
 
             selec = teclado.nextLine();
 
@@ -84,8 +84,9 @@ public class Principal {
                 }
                 case "8" -> {
                     System.out.println("Se buscara el texto por el indice");
+                    System.out.println("El indice empieza en 0 y termina en " + (listaDoble.size() - 1));
                     textoIngresado = teclado.nextLine();
-                    numeroSelec = Integer.parseInt(textoIngresado) - 1;
+                    numeroSelec = Integer.parseInt(textoIngresado);
 
                     if (numeroSelec == -1) {
                         numeroSelec++;
@@ -106,8 +107,31 @@ public class Principal {
                     System.out.println("Elija la posicion que desea borrar");
                     System.out.println("1. El principio");
                     System.out.println("2. El final");
-                    System.out.println("3. Seleccion libre");
-                    
+                    System.out.println("3. Una posicion entre el principio y el final");
+                    textoIngresado = teclado.nextLine();
+
+                    if (textoIngresado.equals("1")){
+                        System.out.println("Se borrara el primer elemento de la lista");
+                        listaDoble.deleteFromHead();
+
+                    }else if (textoIngresado.equals("2")){
+                        System.out.println("Se borrara el elemento final de la lista");
+                        listaDoble.deleteFromTail();
+
+                    }else if(textoIngresado.equals("3")){
+                        System.out.println("Ingrese el indice del elemento a borrar");
+                        System.out.println("Advertencia de no borrar el principio o final de la lista");
+                        textoIngresado = teclado.nextLine();
+                        numeroSelec = Integer.parseInt(textoIngresado);
+                        if (numeroSelec < 1 || numeroSelec >= (listaDoble.size())-1){
+                            System.out.println("Seleccion invalida");
+                        }else{
+                            System.out.println("Se borro el texto " + listaDoble.searchByIndex(numeroSelec));
+                            listaDoble.deleteFromPosition(numeroSelec);
+                        }
+                    }else{
+                        System.out.println("Error");
+                    }
                 }
             }
 
