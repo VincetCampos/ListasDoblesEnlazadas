@@ -75,7 +75,7 @@ public class Principal {
 
                     if (Hola != null) {
                         System.out.println("El texto: "
-                                + listaDoble.searchByValue(textoIngresado));
+                                + listaDoble.searchByValue(textoIngresado) + " se ha encontrado");
                     } else {
 
                         System.out.println("No se encontro el texto");
