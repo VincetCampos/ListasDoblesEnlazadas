@@ -119,15 +119,20 @@ public class Principal {
                         listaDoble.deleteFromTail();
 
                     }else if(textoIngresado.equals("3")){
-                        System.out.println("Ingrese el indice del elemento a borrar");
-                        System.out.println("Advertencia de no borrar el principio o final de la lista");
-                        textoIngresado = teclado.nextLine();
-                        numeroSelec = Integer.parseInt(textoIngresado);
-                        if (numeroSelec < 1 || numeroSelec >= (listaDoble.size())-1){
-                            System.out.println("Seleccion invalida");
+                        if (listaDoble.size() <= 2){
+                            System.out.println("No se puede utilizar esta opcion con una lista de 2 elementos o menos");
+
                         }else{
-                            System.out.println("Se borro el texto " + listaDoble.searchByIndex(numeroSelec));
-                            listaDoble.deleteFromPosition(numeroSelec);
+                            System.out.println("Ingrese el indice del elemento a borrar");
+                            System.out.println("Advertencia de no borrar el principio o final de la lista");
+                            textoIngresado = teclado.nextLine();
+                            numeroSelec = Integer.parseInt(textoIngresado);
+                            if (numeroSelec < 1 || numeroSelec >= (listaDoble.size())){
+                                System.out.println("Seleccion invalida");
+                            }else{
+                                System.out.println("Se borro el texto " + listaDoble.searchByIndex(numeroSelec));
+                                listaDoble.deleteFromPosition(numeroSelec);
+                            }
                         }
                     }else{
                         System.out.println("Error");
